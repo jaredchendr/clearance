@@ -1,6 +1,6 @@
 module Clearance
   class Configuration
-    attr_writer :allow_sign_up, :allow_password_reset_expiration, :routes
+    attr_writer :allow_sign_up, :routes
 
     attr_accessor \
       :cookie_domain,
@@ -17,7 +17,6 @@ module Clearance
 
     def initialize
       @allow_sign_up = true
-      @allow_password_reset_expiration = false
       @cookie_expiration = ->(cookies) { 1.year.from_now.utc }
       @cookie_path = '/'
       @cookie_name = "remember_token"
@@ -35,10 +34,6 @@ module Clearance
 
     def allow_sign_up?
       @allow_sign_up
-    end
-
-    def allow_password_reset_expiration?
-      @allow_password_reset_expiration
     end
 
     def  user_actions
