@@ -10,6 +10,7 @@ module Clearance
       :httponly,
       :mailer_sender,
       :password_strategy,
+      :password_reset_time_limit,
       :redirect_url,
       :secure_cookie,
       :sign_in_guards,
@@ -22,6 +23,7 @@ module Clearance
       @cookie_name = "remember_token"
       @httponly = false
       @mailer_sender = 'reply@example.com'
+      @password_reset_time_limit = 15.minutes
       @redirect_url = '/'
       @routes = true
       @secure_cookie = false
